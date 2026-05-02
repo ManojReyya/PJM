@@ -73,14 +73,16 @@ npm run dev
 - `GET /api/dashboard/overdue`
 
 ## Railway Deployment
-1. Push repo to GitHub.
-2. Create Railway project.
-3. Add MySQL service.
-4. Deploy backend service from `/backend`.
-5. Set backend env vars from `.env.example` (prefer `MYSQL_URL` from Railway + `DB_SSL=true`).
-6. Deploy frontend service from `/frontend`.
-7. Set `VITE_API_BASE_URL` to backend Railway URL + `/api`.
-8. Set backend `FRONTEND_URL` to frontend Railway domain.
+**See detailed step-by-step guide: [RAILWAY_DEPLOY.md](RAILWAY_DEPLOY.md)**
+
+Quick summary:
+1. Create Railway project + MySQL service
+2. Deploy backend from `/backend` folder
+3. Set backend env vars: `MYSQL_URL`, `DB_SSL=true`, `JWT_SECRET`, `FRONTEND_URL`
+4. Run `backend/sql/schema.sql` on MySQL
+5. Deploy frontend from `/frontend` folder
+6. Set frontend env var: `VITE_API_BASE_URL=backend-url/api`
+7. Test live app: signup → create project → create task → dashboard
 
 ## Note For This Workspace Path (Windows)
 If npm scripts fail due to `&` in folder name, run tools directly:
